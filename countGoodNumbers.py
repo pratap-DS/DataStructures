@@ -1,4 +1,4 @@
-import numpy as np
+# import numpy as np
 import math
 class Solution:
     def countGoodNumbers(self, n: int) -> int:

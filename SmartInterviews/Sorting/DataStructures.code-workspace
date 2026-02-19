@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "../.."
-		},
-		{
-			"path": "../../../../React/beginner/my-app"
 		}
 	],
 	"settings": {}

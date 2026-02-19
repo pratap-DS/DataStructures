@@ -42,26 +42,35 @@ def merge(ar,low,mid,high):
 
         if left[i] < right[j]:
             ar[k] = left[i]
+            print("1",ar[k],i,k,k-i)
             k += 1
             i += 1
 
         else:
             ar[k] = right[j]
+            print("2",ar[k],j,k,k-j)
             j += 1
             k += 1
 
         
     while(i<len(left)):
         ar[k] = left[i]
+        print("3",ar[k],i,k,k-i)
         k += 1
         i += 1
 
     while(j< len(right)):
         ar[k] = right[j]
+        print("4",ar[k],j,k,k-j)
         k += 1
         j += 1
 
-    print('inside',ar)
+
+    # print('inside',ar)
+
+
+
+
 
 
 
@@ -74,6 +83,8 @@ def merge(ar,low,mid,high):
 
 def mergeSort(ar,low,high):
 
+    count = 0
+
     if low<high:
         mid = (low+high)//2
         mergeSort(ar,low,mid)
@@ -81,9 +92,49 @@ def mergeSort(ar,low,high):
         merge(ar,low,mid,high)
 
 
-a = [9,4,2,7,8,10,1,8,0,-5]
+
+hashmap = {}
+# a = [9,4,2,7,8,10,1,8,0,-5]
+a = [4, 10, 54, 11, 8]
+
+for i in range(len(a)):
+    hashmap[a[i]] = i
+
+print(hashmap)
+print(a)
 mergeSort(a,0,len(a)-1)
 print(a)
 
 
+
+
+
+def merge(ar, low, mid, high):
+
+    i = low
+    j = mid + 1
+    temp = []
+    count = 0
+
+    while(i<=mid and j<=high):
+        if ar[i]<=ar[j]:
+            temp.append(ar[i])
+            i += 1
+        else:
+            temp.append(ar[j])
+            count += ((mid-i)+1)
+            j += 1
+
+    
+    while(i<=mid):
+        temp.append(ar[i])
+        i += 1
+
+    while(j<=high):
+        temp.append(ar[j])
+        j += 1
+
+    for k in range(len(temp)):
+        ar[low+k] = temp[k]
+    return count
 
